@@ -1,6 +1,6 @@
 # Atlas Live Pro App
 
-Atlas Live Pro App is an IPTV player that allows users to watch live TV channels via their IPTV service credentials.
+Atlas Live Pro App is an IPTV player that allows users to watch live TV channels using their IPTV service credentials.
 
 ## User Journeys
 
@@ -17,7 +17,7 @@ Atlas Live Pro App is an IPTV player that allows users to watch live TV channels
 
 3. **Submit Credentials:**
    - The user clicks the **Login** button.
-   - The app authenticates the credentials by fetching the channel playlist.
+   - The app authenticates the credentials by fetching the channel playlist from the IPTV service.
 
 4. **View Available Channels:**
    - Upon successful login, the user sees a list of available TV channels.
@@ -41,7 +41,7 @@ Atlas Live Pro App is an IPTV player that allows users to watch live TV channels
 
 - **User Authentication:**
   - Login using IPTV service credentials (username and password).
-  
+
 - **Channel Listing:**
   - Displays available channels fetched from the user's IPTV service.
   - Channels are shown with images and grouped by categories.
@@ -49,11 +49,38 @@ Atlas Live Pro App is an IPTV player that allows users to watch live TV channels
 - **Live Video Playback:**
   - Streams live TV channels within the app using HLS (HTTP Live Streaming).
 
-## External Services
+## External API Usage
 
 - **IPTV Service API:**
-  - The app connects to the user's IPTV service to fetch the channel playlist.
+  - The app connects to the user's IPTV service (`https://apsmart.in`) to fetch the channel playlist.
   - Users must have valid credentials from their IPTV provider.
+  
+- **Sentry Error Logging:**
+  - Used to capture and log errors in the app for debugging purposes.
+
+## Environment Variables
+
+- **Sentry DSN:**
+  - `VITE_PUBLIC_SENTRY_DSN`: Your Sentry DSN for error logging.
+  - `VITE_PUBLIC_APP_ENV`: The environment (e.g., development, production).
+  - `VITE_PUBLIC_APP_ID`: The application ID for Sentry tags.
+
+## Getting Started
+
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Run the App:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for Production:**
+   ```bash
+   npm run build
+   ```
 
 ## Notes
 
@@ -66,34 +93,10 @@ Atlas Live Pro App is an IPTV player that allows users to watch live TV channels
 - **Responsive Design:**
   - The app is responsive and works on various screen sizes for both desktop and mobile devices.
 
-## Getting Started
+- **External APIs:**
+  - The app fetches the M3U Plus playlist from the user's IPTV service using their credentials.
 
-1. **Install Dependencies:**
-   ```
-   npm install
-   ```
+## Disclaimer
 
-2. **Run the App:**
-   ```
-   npm run dev
-   ```
-
-3. **Build for Production:**
-   ```
-   npm run build
-   ```
-
-## Environment Variables
-
-- **Sentry DSN:**
-  - `VITE_PUBLIC_SENTRY_DSN`: Your Sentry DSN for error logging.
-  - `VITE_PUBLIC_APP_ENV`: The environment (e.g., development, production).
-  - `VITE_PUBLIC_APP_ID`: The application ID for Sentry tags.
-
-## External API Usage
-
-- **IPTV Playlist Fetching:**
-  - The app fetches the M3U Plus playlist from the IPTV service using the user's credentials.
-
-- **Sentry Error Logging:**
-  - Used to capture and log errors in the app.
+- **User Responsibility:**
+  - Users are responsible for ensuring they have the rights to access and stream content from their IPTV provider.
